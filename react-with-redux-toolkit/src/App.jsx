@@ -7,7 +7,7 @@ import {
   reset,
 } from "./features/counter/counterSlice";
 import { useEffect } from "react";
-import { fetchUsers } from "./features/posts/userSlice";
+import { fetchUsers } from "./features/users/userSlice";
 
 function App() {
   const count = useSelector((state) => state.counter.count);
@@ -20,37 +20,41 @@ function App() {
 
   return (
     <>
+      {/* counter */}
       <div>
-        <h1>Counter : {count}</h1>
-        <button
-          onClick={() => {
-            dispatch(increment());
-          }}
-        >
-          Increment
-        </button>
-        <button
-          onClick={() => {
-            dispatch(reset());
-          }}
-        >
-          Reset
-        </button>
-        <button
-          onClick={() => {
-            dispatch(decrement());
-          }}
-        >
-          Decrement
-        </button>
-        <button
-          onClick={() => {
-            dispatch(increaseByAmount(10));
-          }}
-        >
-          Increase 10
-        </button>
+        <h1 className="font-bold text-2xl">Counter : {count}</h1>
+        <div className="my-10 flex gap-4 justify-center">
+          <button
+            onClick={() => {
+              dispatch(increment());
+            }}
+          >
+            Increment
+          </button>
+          <button
+            onClick={() => {
+              dispatch(reset());
+            }}
+          >
+            Reset
+          </button>
+          <button
+            onClick={() => {
+              dispatch(decrement());
+            }}
+          >
+            Decrement
+          </button>
+          <button
+            onClick={() => {
+              dispatch(increaseByAmount(10));
+            }}
+          >
+            Increase 10
+          </button>
+        </div>
       </div>
+      {/* fetched Data */}
       <div>
         {isLoading && <span>Loading....</span>}
         {error && <span>error....</span>}
