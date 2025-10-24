@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import {
+  decreaseByAmount,
   decrement,
   increaseByAmount,
   increment,
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <>
-      {/* counter */}
+      {/* Counters  App*/}
       <div>
         <h1 className="font-bold text-2xl">Counter : {count}</h1>
         <div className="my-10 flex gap-4 justify-center">
@@ -30,6 +31,13 @@ function App() {
             }}
           >
             Increment
+          </button>
+          <button
+            onClick={() => {
+              dispatch(increaseByAmount(10));
+            }}
+          >
+            Increase 10
           </button>
           <button
             onClick={() => {
@@ -47,10 +55,10 @@ function App() {
           </button>
           <button
             onClick={() => {
-              dispatch(increaseByAmount(10));
+              dispatch(decreaseByAmount(10));
             }}
           >
-            Increase 10
+            Decrease 10
           </button>
         </div>
       </div>
